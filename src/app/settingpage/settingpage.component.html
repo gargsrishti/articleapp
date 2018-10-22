@@ -1,0 +1,25 @@
+<div *ngIf="isAuthenticated" style="align-self: center; text-align: center; padding-left: 30%; padding-right: 30%" >
+  <h1>Your Settings</h1>
+  <form [formGroup]="settingsForm" (ngSubmit)="updateSettings()">
+      <div class="form-group">
+          <input type="text" class="form-control" formControlName="image" id="image" placeholder="URL of profile picture">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" formControlName="username" id="username" placeholder="name" value="">
+      </div>
+      <div class="form-group">
+        <input type="textbox" class="form-control" formControlName="bio" id="bio" placeholder="Short bio about you">
+      </div>
+      <div class="form-group">
+        <input type="email" class="form-control" formControlName="email" id="email" placeholder="email" value="">
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control" formControlName="password" id="password" placeholder="password" value="">
+      </div>
+      
+      <button type="submit" class="btn btn-primary" style="background-color: #5CB85C; border-color: #5CB85C; float: center;">Update Settings</button>
+    </form>
+    <hr/>
+    <button (click)="logout()" class="btn btn-primary" style="color: darkred; background-color: transparent; border-color:gainsboro; border-width: 0.3px">Or click here to logout</button>
+  </div>
+  <div *ngIf="!isAuthenticated">Please <a [routerLink]="">Login</a> to continue</div>

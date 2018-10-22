@@ -1,0 +1,64 @@
+<div class="home-page">
+
+        <div class="banner">
+          <div class="container">
+            <h1 class="logo-font">conduit</h1>
+            <p>A place to share your knowledge.</p>
+          </div>
+        </div>
+      
+        <div class="container page">
+          <div class="row">
+      
+            <div class="col-md-9">
+              <div class="feed-toggle">
+                <ul class="nav nav-pills outline-active">
+                  <li class="nav-item">
+                    <a data-toggle="pill" *ngIf="isAuthenticated" (click)="getUserFeeds()" class="nav-link disabled" href="#userfeed">Your Feed</a>
+                  </li>
+                  <li class="nav-item">
+                    <a data-toggle="pill" (click)="getGlobalFeeds()" class="nav-link active" href="#globalfeed">Global Feed</a>
+                  </li>
+                  <li class="nav-item">
+                      <a data-toggle="pill" *ngIf="isTagSelected" class="nav-link disabled" href="#tagFeed">Tag Feed</a>
+                    </li>
+                </ul>
+              </div> 
+              <div class="tab-content">
+              <div *ngIf="isAuthenticated" id="userfeed" class="tab-pane fade">
+                <app-feedsdisplay [articles] = "feed"></app-feedsdisplay>
+                
+              </div>
+              <div id="globalfeed" class="tab-pane fade">
+                <app-feedsdisplay [articles]="articles"></app-feedsdisplay>
+                <div class="row" style="margin-left:10%">
+                    <span *ngFor="let page of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25]"style="cursor: pointer;"><a (click)="setPage(page)">{{page}}&nbsp; &nbsp;</a></span>
+                </div>
+              </div>
+              <div id="tagFeed" class="tab-pane fade">
+                  <app-feedsdisplay [articles]="tagFeed"></app-feedsdisplay>
+            
+                </div>
+            </div>
+          </div>
+          
+            <div class="col-md-3 container" style="padding-top: 10px">
+              <div class="sidebar">
+                <p>Popular Tags</p>
+      
+                <div class="tag-list">
+                  <a (click)="showFeedByTag('programming')" class="label label-pill label-default">programming</a>&nbsp;
+                  <a (click)="showFeedByTag('javascript')" class="label label-pill label-default">javascript</a>&nbsp;
+                  <a (click)="showFeedByTag('angularjs')" class="label label-pill label-default">angularjs</a>&nbsp;
+                  <a (click)="showFeedByTag('react')" class="label label-pill label-default">react</a>&nbsp;
+                  <a (click)="showFeedByTag('mean')" class="label label-pill label-default">mean</a>&nbsp;
+                  <a (click)="showFeedByTag('node')" class="label label-pill label-default">node</a>&nbsp;
+                  <a (click)="showFeedByTag('rails')" class="label label-pill label-default">rails</a>&nbsp;
+                </div>
+              </div>
+            </div>
+      
+          </div>
+        </div>
+        
+      </div>

@@ -1,0 +1,45 @@
+.banner {
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 8px 8px -8px inset, rgba(0, 0, 0, 0.3) 0px -8px 8px -8px inset;
+    background: rgb(92, 184, 92);
+    height:150px;
+    width:100%;
+}
+
+.banner h1{
+    text-align: center;
+    font-weight: bolder;
+    text-decoration-color: aliceblue;
+    color: aliceblue;
+    margin-top: 30px;
+}
+
+.banner p{
+    text-align: center;
+    font-weight: 500;
+    text-decoration-color: aliceblue;
+    color: aliceblue;
+    
+}
+
+.feed-toggle {
+      margin-bottom:-1px;
+}
+
+img {
+    height: 40px;
+    width: 40px;
+}
+
+.sidebar {
+      padding:5px 10px 10px 10px;
+      background:#f3f3f3;
+      border-radius: 4px;
+}  
+.sidebar p {
+        margin-bottom:0.2rem;
+      }
+
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover{
+    color:rgb(92, 184, 92);
+    background-color: white;
+}

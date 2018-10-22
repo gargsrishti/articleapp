@@ -1,0 +1,16 @@
+<nav class="navbar navbar-default" style="background-color: white; margin-bottom: 0%">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#" style="color:rgb(92, 184, 92); font-weight: bold">Conduit</a>
+    </div>
+    <ul class="nav navbar-nav" style="float:right">
+      <li *ngIf="!isAuthenticated"><a [routerLink]="['/signin']">Sign In</a></li>
+      <li *ngIf="!isAuthenticated"><a [routerLink]="['/signup']">Sign Up</a></li>
+      <li *ngIf="isAuthenticated"><a [routerLink]="['/']">Home</a></li>
+      <li *ngIf="isAuthenticated"><a [routerLink]="['/editor']">New Article</a></li>
+      <li *ngIf="isAuthenticated"><a [routerLink]="['/setting']">Settings</a></li>
+      <li *ngIf="isAuthenticated"><a [routerLink]="['/profile', username]">{{username}}</a></li>
+    </ul>
+  </div>
+</nav>
+

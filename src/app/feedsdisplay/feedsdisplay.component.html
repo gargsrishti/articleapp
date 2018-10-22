@@ -1,0 +1,36 @@
+<div *ngFor="let article of articles" class="post-preview" style = "border: thin">
+      <div class="row container" style="float: left">
+      <div class="col-md-1">
+        <a [routerLink]="['/profile', article.author.username]"><img style="height:40px; width:40px" src="{{article.author.image}}" /></a>
+      </div>
+        <div class=" info col-md-5">
+            <div class="row">
+          <a [routerLink]="['/profile', article.author.username]" class="author">{{article.author.username}}</a>
+      </div>
+      <div class="row">
+          <span class="date">{{article.createdAt}}</span>
+      </div>  
+      </div>
+        <button class="btn btn-outline-primary btn-sm pull-xs-right">
+          <i class="ion-heart">{{article.favoritesCount}}</i> 
+        </button>
+      </div>
+      <div class="row">
+          <div class="col-md-1"></div>
+          <div class="col-md-5" style="padding-left: 40px;">
+          <a [routerLink]="['/article', article.slug]" style="color:black" class="preview-link">
+          <h3>{{article.title}}</h3>
+          <p style="color:gray">{{article.body}}</p>
+          <span>Read more...</span>
+          </a>
+          </div>
+      
+      </div>
+      <hr/>
+      </div>
+      <div *ngIf="articles">
+      <div style="padding-left: 15px;padding-top: 10px;" *ngIf="articles.length == 0">
+          No articles to display
+      </div>
+    </div>
+   

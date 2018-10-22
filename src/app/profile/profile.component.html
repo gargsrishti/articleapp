@@ -1,0 +1,32 @@
+<div class = "banner" style="padding-left: 30%">
+    <div>
+      <h1>{{username}}</h1>
+    </div>
+    <div class="row">
+      <div class="col-md-3" *ngIf="article">
+        <img src={{article.author.image}}>
+        <span>
+          {{user.bio}}<br>
+        </span>
+      </div>
+      <div *ngIf="isEditable" class="col-md-4">
+        
+        <a class="custbtn delete" [routerLink]= "['/setting']">Edit Settings</a>
+      </div>
+    </div>
+    </div>
+    <div class="container">
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+          <h4 style="margin-left: 150px; color: rgb(92, 184, 92)">User's Posts</h4>
+          <hr style="color:grey;">
+        <app-feedsdisplay [articles]="articles"></app-feedsdisplay>
+      </div>
+      <div class="col-md-6">
+
+          <h4 style="margin-left: 150px; color: rgb(92, 184, 92)">Favorited Posts</h4>
+          <hr style="color:grey;">
+          <app-feedsdisplay [articles]="favs"></app-feedsdisplay>
+        </div>
+    

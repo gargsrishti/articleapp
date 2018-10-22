@@ -1,0 +1,54 @@
+<div class = "banner">
+<div>
+  <h1>{{article.title}}</h1>
+</div>
+<div class="row">
+  <div class="col-md-3">
+    <img src={{article.author.image}}>
+    <span>
+      {{article.author.username}}<br>
+      {{article.createdAt}}
+    </span>
+  </div>
+  <div class="col-md-4">
+    <button *ngIf="canModify" class="custbtn" [routerLink] = "['/editor', article.slug]">Edit Article</button>&nbsp;
+    <button *ngIf="canModify" class="custbtn delete" (click)= "deleteArticle()">Delete Article</button>
+  </div>
+</div>
+</div>
+<div class="container">
+  <p>
+  {{article.body}}
+  </p>
+</div>
+
+<hr>
+ <div class="page-header">
+            <h2 style="padding-left: 10%"><small class="pull-right"></small> Comments </h2>
+          </div> 
+<div *ngFor="let comment of comments">
+<app-comment [comment] = "comment"></app-comment>
+</div>
+
+<!-- - - - --  -  - - - -- - -Add Comment- - - -- -- -  -- -  ----->
+<div class="container" style="padding-left: 25%">
+    <div class="row">
+      <h3>Add Comment</h3>
+    </div>
+      
+      <div *ngIf="isAuthenticated" class="row">
+      
+      <div class="col-md-6">
+                  <div class="widget-area no-padding blank">
+                  <div class="status-upload">
+                    <form (ngSubmit)="addComment()">
+                      <textarea [formControl]="commentControl" placeholder="Write your comment here ... " ></textarea>
+                      <button type="submit" class="btn btn-success green"><i class="fa fa-share"></i> Share</button>
+                    </form>
+                  </div><!-- Status Upload  -->
+                </div><!-- Widget Area -->
+              </div>
+          
+      </div>
+      <div *ngIf="!isAuthenticated"> Please <a [routerLink] = "['/signin']">signin</a> to add a comment.</div>
+  </div>
